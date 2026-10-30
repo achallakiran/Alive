@@ -34,3 +34,6 @@ For the drone puzzle, align above the robot at approximately 1.06 units height t
 Three.js is bundled locally. Detailed voxel characters use instanced geometry for head/hair features. A Canvas software projection fallback renders the same scene graph when WebGL cannot initialize; it has simpler lighting and no GPU shadows. Music/effects are synthesized locally after user interaction. No live LLM service or runtime CDN is used; authored stage reflections preserve the story.
 
 Checkpoint saves and preferences use browser storage when available. They remain optional: blocked storage does not stop play. Mobile file opening depends on the host app exposing the HTML to a browser with JavaScript enabled.
+
+## Landscape revision (v0.3)
+Landscape-only interaction with a rotating-phone overlay. Portrait suspends simulation and audio independently of manual pause. Upright bold text, illuminated title, shared garage camera and layout, consistent EV/robot/adult/workbench scale, permanent puzzle furniture, visible robot dismount and drone approach. Version 3 checkpoints include entity transforms, robot attachment and training progress; older checkpoints use safe stage entry defaults.
