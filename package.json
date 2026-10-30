@@ -1,0 +1,26 @@
+{
+  "name": "alive",
+  "version": "0.2.0",
+  "description": "AI comes to life!!!",
+  "main": "main.js",
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "check": "node --check src/game.js && node --check src/models.js && node --check src/software-renderer.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/achallakiran/Alive.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "bugs": {
+    "url": "https://github.com/achallakiran/Alive/issues"
+  },
+  "homepage": "https://github.com/achallakiran/Alive#readme",
+  "dependencies": {
+    "esbuild": "^0.28.2",
+    "three": "^0.180.0"
+  }
+}

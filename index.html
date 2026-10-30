@@ -1,56 +1,13 @@
-<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover,user-scalable=no" />
-  <title>ALIVE — Voxel Prototype</title>
-  <meta name="theme-color" content="#07110d" />
-  <link rel="stylesheet" href="./style.css" />
-</head>
-<body>
-  <div id="game"></div>
-
-  <div id="titleScreen" class="overlay active">
-    <div class="titleCard">
-      <div class="eyebrow">A VOXEL AI ADVENTURE</div>
-      <h1>ALIVE</h1>
-      <p>Something on Ravi's desk has started learning.</p>
-      <button id="startBtn">START GAME</button>
-      <div class="hint">WASD / arrows · E = ACT · Q = HOP · drag to look</div>
-    </div>
-  </div>
-
-  <div id="hud" class="hidden">
-    <div id="objective"></div>
-    <div id="interaction"></div>
-    <div id="miniTerminal">
-      <div class="termTop"><span>LOCAL://RAVI-DESK</span><span id="linkState">IDLE</span></div>
-      <div id="termNoise">7f a1 ?? bind::local 0x3f ...</div>
-    </div>
-    <div id="mobileControls">
-      <div class="dpad">
-        <button data-key="ArrowUp">▲</button>
-        <div>
-          <button data-key="ArrowLeft">◀</button>
-          <button data-key="ArrowDown">▼</button>
-          <button data-key="ArrowRight">▶</button>
-        </div>
-      </div>
-      <div class="actions">
-        <button id="hopBtn">HOP</button>
-        <button id="actBtn">ACT</button>
-      </div>
-    </div>
-  </div>
-
-  <div id="stageTerminal" class="overlay">
-    <div class="fullTerminal">
-      <div class="terminalChrome">RAVI-DESK / agent.session</div>
-      <pre id="stageText"></pre>
-      <button id="continueBtn">CONTINUE</button>
-    </div>
-  </div>
-
-  <script type="module" src="./main.js"></script>
-</body>
-</html>
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#070e18"><meta name="description" content="ALIVE — a cinematic voxel adventure. One minute changes everything."><title>ALIVE — One Minute</title><link rel="stylesheet" href="style.css"></head><body>
+<div id="world"></div><div id="vignette"></div><svg id="connections"><path id="linkPath"/></svg>
+<div id="loading">ASSEMBLING A LITTLE WORLD<span>ALIVE</span></div>
+<header id="chapter"><span id="chapterNumber">01 / THE ARRIVAL</span><span id="objective"></span></header>
+<div id="title"><div class="title-top"><span>ALIVE</span><span>A VOXEL STORY</span></div><div class="title-bottom"><h1 aria-label="ALIVE"><i>A</i><b>L</b><i>I</i><b>ve</b></h1><p>Just one more minute.</p><nav><button id="begin">BEGIN STORY <span>↗</span></button><button id="resume" hidden>CONTINUE</button><button id="settingsOpen">SETTINGS</button></nav><small>AN INTERACTIVE DIORAMA · HEADPHONES RECOMMENDED</small></div></div>
+<div id="hotspots"></div><div id="hint"></div><div id="toast" role="status"></div>
+<div id="dialogue" hidden><span id="speaker"></span><p id="speech"></p><button id="nextLine">CONTINUE →</button></div>
+<div id="terminal" class="mini" hidden><div class="terminal-bar"><span>ravi@home:~ / local-model</span><span>●</span></div><pre id="terminalText"></pre><button id="terminalContinue" hidden>CONTINUE →</button></div>
+<div id="gameTools" hidden><button id="pauseButton" aria-label="Pause">Ⅱ</button><button id="fullscreen" aria-label="Full screen">⛶</button></div>
+<div id="touch" hidden><div class="pad"><button data-key="ArrowUp" aria-label="Forward">↑</button><div><button data-key="ArrowLeft" aria-label="Left">←</button><button data-key="ArrowDown" aria-label="Back">↓</button><button data-key="ArrowRight" aria-label="Right">→</button></div></div><div class="abilities"><button id="rise">RISE</button><button id="lower">LOWER</button><button id="action">ACT</button></div></div>
+<div id="modal" hidden><section><span class="overline">ALIVE / SYSTEM</span><h2 id="modalTitle">Settings</h2><label>Synthesized music <input id="music" type="range" min="0" max="1" step="0.05" value="0.25"></label><label>Sound effects <input id="effects" type="range" min="0" max="1" step="0.05" value="0.45"></label><label>Parallax <input id="parallax" type="checkbox" checked></label><label>Graphics <select id="quality"><option value="1">Balanced</option><option value="1.7">Detailed</option><option value="0.75">Battery saver</option></select></label><button id="tilt">ENABLE DEVICE TILT</button><button id="closeModal">RETURN →</button><button id="home">TITLE SCREEN</button><small>Move: arrows / WASD · Interact: E · Connect: Q<br>Drone height: R / F · Pause: Escape<br>Tap objects to connect. Drag empty space for parallax.</small></section></div>
+<div id="fatal" hidden><h2>The scene could not start</h2><p id="fatalText"></p><button onclick="location.reload()">RETRY</button></div>
+<script>window.addEventListener('error',function(e){document.getElementById('fatal').hidden=false;document.getElementById('fatalText').textContent=e.message;document.getElementById('loading').hidden=true;});</script><script src="game.js" defer></script></body></html>
