@@ -1,11 +1,11 @@
 {
   "name": "alive",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "description": "AI comes to life!!!",
   "main": "main.js",
   "scripts": {
     "build": "node scripts/build.mjs",
-    "check": "node --check src/game.js && node --check src/models.js && node --check src/software-renderer.js"
+    "check": "node --check src/game.js && node --check src/models.js && node --check src/software-renderer.js && node --check src/characters.js && node --check src/garage-props.js"
   },
   "repository": {
     "type": "git",

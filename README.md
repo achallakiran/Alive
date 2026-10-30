@@ -37,3 +37,6 @@ Checkpoint saves and preferences use browser storage when available. They remain
 
 ## Landscape revision (v0.3)
 Landscape-only interaction with a rotating-phone overlay. Portrait suspends simulation and audio independently of manual pause. Upright bold text, illuminated title, shared garage camera and layout, consistent EV/robot/adult/workbench scale, permanent puzzle furniture, visible robot dismount and drone approach. Version 3 checkpoints include entity transforms, robot attachment and training progress; older checkpoints use safe stage entry defaults.
+
+## Reference-based opening (v0.4)
+Rounded articulated character models follow the supplied voxel HTML while retaining ALIVE clothing. The fixed garage now includes a chair, a forward-facing charging EV with cable/plug, and a shelf-mounted dormant toy drone. The opening stages the OTP exchange, handover, carrying, unpacking and seated assembly. Drone takeoff starts at its shelf; EV movement is gated on stowing the charger. See `docs/scene-layout.md` for positions and continuity. Run `node tests/scene.mjs` for physical scale and prop-state checks.

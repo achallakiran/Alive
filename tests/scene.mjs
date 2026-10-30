@@ -1,0 +1,16 @@
+import assert from 'node:assert/strict';
+import * as T from 'three';
+import {character,car,robot,drone} from '../src/models.js';
+import {garageProps,HOME} from '../src/garage-props.js';
+const world=new T.Group();
+const actors=['Ravi','Divya','Kaushiki','Kaustubh'].map(n=>character(world,n));
+const heights=actors.map(o=>new T.Box3().setFromObject(o).getSize(new T.Vector3()).y);
+assert(heights[0]>1.5&&heights[0]<2,'adult scale');
+assert(heights[2]<heights[0]&&heights[3]<heights[2],'child proportions');
+const ev=car(world);ev.scale.set(1.25,1.25,1.45);ev.position.set(...Object.values(HOME.parking));
+const size=new T.Box3().setFromObject(ev).getSize(new T.Vector3());assert(size.z>3.7&&size.z<4.3,'EV length');assert(size.y>1.4&&size.y<1.8,'EV height');
+const toy=drone(world);toy.scale.setScalar(.65);toy.position.set(...Object.values(HOME.drone));
+const bottom=new T.Box3().setFromObject(toy).min.y;assert(Math.abs(bottom-1.7825)<.05,'drone rests on shelf pad');
+const r=robot(world);r.scale.setScalar(.4);assert(new T.Box3().setFromObject(r).getSize(new T.Vector3()).y<.45,'small robot scale');
+const props=garageProps(world);props.charging(true);assert(props.plug.position.distanceTo(new T.Vector3(-1.23,.73,-2.8))<.01);props.charging(false);assert(props.plug.position.z<-4.5,'plug stowed away from exit path');assert(props.cable.children.length>0,'visible stowed cable');
+console.log('Character scale, EV dimensions, shelf clearance and charging-state checks passed.');
