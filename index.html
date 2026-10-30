@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover,user-scalable=no" />
+  <title>ALIVE — Voxel Prototype</title>
+  <meta name="theme-color" content="#07110d" />
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+  <div id="game"></div>
+
+  <div id="titleScreen" class="overlay active">
+    <div class="titleCard">
+      <div class="eyebrow">A VOXEL AI ADVENTURE</div>
+      <h1>ALIVE</h1>
+      <p>Something on Ravi's desk has started learning.</p>
+      <button id="startBtn">START GAME</button>
+      <div class="hint">WASD / arrows · E = ACT · Q = HOP · drag to look</div>
+    </div>
+  </div>
+
+  <div id="hud" class="hidden">
+    <div id="objective"></div>
+    <div id="interaction"></div>
+    <div id="miniTerminal">
+      <div class="termTop"><span>LOCAL://RAVI-DESK</span><span id="linkState">IDLE</span></div>
+      <div id="termNoise">7f a1 ?? bind::local 0x3f ...</div>
+    </div>
+    <div id="mobileControls">
+      <div class="dpad">
+        <button data-key="ArrowUp">▲</button>
+        <div>
+          <button data-key="ArrowLeft">◀</button>
+          <button data-key="ArrowDown">▼</button>
+          <button data-key="ArrowRight">▶</button>
+        </div>
+      </div>
+      <div class="actions">
+        <button id="hopBtn">HOP</button>
+        <button id="actBtn">ACT</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="stageTerminal" class="overlay">
+    <div class="fullTerminal">
+      <div class="terminalChrome">RAVI-DESK / agent.session</div>
+      <pre id="stageText"></pre>
+      <button id="continueBtn">CONTINUE</button>
+    </div>
+  </div>
+
+  <script type="module" src="./main.js"></script>
+</body>
+</html>
